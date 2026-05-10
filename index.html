@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>babu.law — AI &amp; Workflow Systems for Law Firms · Nirav Babu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #fcfbfb;
+  --ink: #121212;
+  --ink-soft: rgba(18, 18, 18, 0.8);
+  --muted: rgb(123, 130, 142);
+  --line: rgb(232, 231, 231);
+  --surface: rgb(242, 242, 242);
+  --surface-hover: rgb(232, 231, 231);
+  --accent: rgb(86, 149, 246);
+  --accent-soft: rgba(86, 149, 246, 0.12);
+}
+html, body {
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+}
+.serif { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'opsz' 96; letter-spacing: -0.04em; font-weight: 400; }
+.mono  { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.02em; text-transform: uppercase; }
+
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+.container-narrow { max-width: 880px; margin: 0 auto; padding: 0 32px; }
+
+/* ── Nav ── */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(252, 251, 251, 0.85);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+.nav-brand { display: flex; align-items: center; gap: 10px; font-weight: 500; font-size: 15px; letter-spacing: -0.01em; }
+.nav-brand-mark {
+  width: 26px; height: 26px; border-radius: 6px;
+  background: var(--ink); color: var(--bg);
+  display: grid; place-items: center;
+  font-family: 'Fraunces', serif; font-weight: 500; font-size: 14px;
+}
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-link { color: var(--ink-soft); font-size: 13px; font-weight: 400; transition: color 0.15s; }
+.nav-link:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--ink); color: var(--bg);
+  font-size: 13px; font-weight: 500;
+  padding: 10px 18px; border-radius: 6px; border: none;
+  transition: background 0.15s;
+}
+.nav-cta:hover { background: #2a2a2a; }
+
+/* ── Hero ── */
+.hero { padding: 88px 0 96px; border-bottom: 1px solid var(--line); }
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); margin-bottom: 32px; }
+.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #2a8c5e; box-shadow: 0 0 0 3px rgba(42, 140, 94, 0.18); }
+.hero-eyebrow span:not(.dot) { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink-soft); text-transform: uppercase; }
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 400;
+  font-size: 76px;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+  margin-bottom: 28px;
+  max-width: 18ch;
+}
+.hero h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
+.hero-sub { font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 60ch; margin-bottom: 36px; }
+.hero-ctas { display: flex; align-items: center; gap: 14px; }
+.btn-primary {
+  background: var(--ink); color: var(--bg);
+  font-size: 14px; font-weight: 500;
+  padding: 13px 22px; border-radius: 6px; border: none;
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: background 0.15s, transform 0.1s;
+}
+.btn-primary:hover { background: #2a2a2a; }
+.btn-secondary {
+  background: var(--bg); color: var(--ink);
+  font-size: 14px; font-weight: 500;
+  padding: 13px 22px; border-radius: 6px; border: 1px solid var(--line);
+  transition: background 0.15s;
+}
+.btn-secondary:hover { background: var(--surface); }
+.btn-arrow { transition: transform 0.15s; display: inline-block; }
+.btn-primary:hover .btn-arrow { transform: translateX(2px); }
+
+.hero-meta {
+  margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line);
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+}
+.hero-meta-item .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; display: block; }
+.hero-meta-item .value { font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; letter-spacing: -0.03em; color: var(--ink); display: block; line-height: 1; }
+
+/* ── Trust strip ── */
+.trust { padding: 36px 0; border-bottom: 1px solid var(--line); }
+.trust-inner { display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; }
+.trust-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.trust-list { display: flex; gap: 48px; flex-wrap: wrap; align-items: center; justify-content: center; }
+.trust-item { font-family: 'Fraunces', serif; font-weight: 400; font-size: 19px; color: var(--ink-soft); letter-spacing: -0.02em; }
+.trust-item em { font-style: italic; color: var(--muted); }
+
+/* ── Section base ── */
+section { scroll-margin-top: 80px; }
+.section { padding: 112px 0; border-bottom: 1px solid var(--line); }
+.section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px; display: block; }
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 96;
+  font-weight: 400;
+  font-size: 52px;
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  max-width: 22ch;
+  margin-bottom: 24px;
+}
+.section-title em { font-style: italic; font-weight: 300; color: var(--muted); }
+.section-lede { font-size: 16px; color: var(--muted); max-width: 58ch; line-height: 1.6; }
+
+/* ── About ── */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: start; margin-top: 64px; }
+.about-text p { font-size: 15px; color: var(--ink-soft); line-height: 1.7; margin-bottom: 18px; }
+.about-text p:last-child { margin-bottom: 0; }
+.about-points { display: flex; flex-direction: column; gap: 0; }
+.about-point { padding: 28px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
+.about-point:last-child { border-bottom: 1px solid var(--line); }
+.about-point-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); padding-top: 4px; }
+.about-point-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 8px; }
+.about-point-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+
+/* ── Engagements ── */
+.engagements .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; margin-bottom: 72px; }
+.tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.tier {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 32px;
+  display: flex; flex-direction: column;
+  transition: border-color 0.15s, transform 0.15s;
+}
+.tier:hover { border-color: rgba(18, 18, 18, 0.3); }
+.tier-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 24px; }
+.tier-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 14px;
+}
+.tier-name em { font-style: italic; color: var(--muted); }
+.tier-pitch { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
+.tier-divider { height: 1px; background: var(--line); margin: 24px 0; }
+.tier-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+.tier-features li { font-size: 13px; color: var(--ink-soft); padding-left: 20px; position: relative; line-height: 1.5; }
+.tier-features li::before {
+  content: ''; position: absolute; left: 0; top: 8px;
+  width: 8px; height: 1px; background: var(--ink-soft);
+}
+.tier-bottom { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: end; justify-content: space-between; }
+.tier-price { font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; letter-spacing: -0.03em; line-height: 1; }
+.tier-price-unit { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 6px; }
+.tier-cta { font-size: 13px; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+
+/* ── Proof / Case studies ── */
+.proof .section-head { margin-bottom: 64px; }
+.case-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.case {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 36px;
+  transition: border-color 0.15s;
+}
+.case:hover { border-color: rgba(18, 18, 18, 0.3); }
+.case-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.case-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.case-status { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #2a8c5e; text-transform: uppercase; letter-spacing: 0.08em; }
+.case-status .dot { width: 6px; height: 6px; border-radius: 50%; background: #2a8c5e; box-shadow: 0 0 0 3px rgba(42, 140, 94, 0.18); }
+.case-name { font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 12px; }
+.case-name em { font-style: italic; color: var(--muted); }
+.case-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 28px; }
+.case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--line); }
+.case-stat .num { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; letter-spacing: -0.03em; line-height: 1; display: block; margin-bottom: 6px; }
+.case-stat .lbl { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; line-height: 1.4; display: block; }
+
+/* ── Process ── */
+.process { background: var(--ink); color: var(--bg); border-bottom: 1px solid var(--ink); }
+.process .section-eyebrow { color: rgba(252, 251, 251, 0.6); }
+.process .section-title { color: var(--bg); }
+.process .section-lede { color: rgba(252, 251, 251, 0.6); }
+.process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 72px; }
+.proc-step { padding: 28px 0; border-top: 1px solid rgba(252, 251, 251, 0.15); }
+.proc-step-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(252, 251, 251, 0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px; display: block; }
+.proc-step-name { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 12px; color: var(--bg); }
+.proc-step-desc { font-size: 13px; color: rgba(252, 251, 251, 0.6); line-height: 1.6; }
+
+/* ── FAQ ── */
+.faq-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 80px; align-items: start; }
+.faq-list { display: flex; flex-direction: column; }
+.faq-item { padding: 28px 0; border-top: 1px solid var(--line); }
+.faq-item:last-child { border-bottom: 1px solid var(--line); }
+.faq-q { font-family: 'Fraunces', serif; font-weight: 400; font-size: 19px; letter-spacing: -0.03em; line-height: 1.3; margin-bottom: 12px; }
+.faq-a { font-size: 14px; color: var(--muted); line-height: 1.65; }
+
+/* ── CTA ── */
+.cta-section { padding: 128px 0; text-align: center; border-bottom: 1px solid var(--line); }
+.cta-section h2 {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: 'opsz' 144;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1.0;
+  letter-spacing: -0.045em;
+  margin: 0 auto 28px;
+  max-width: 18ch;
+}
+.cta-section h2 em { font-style: italic; color: var(--muted); font-weight: 300; }
+.cta-section p { font-size: 16px; color: var(--muted); max-width: 52ch; margin: 0 auto 40px; line-height: 1.6; }
+.cta-section .hero-ctas { justify-content: center; }
+
+/* ── Footer ── */
+.footer { padding: 56px 0 40px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
+.footer-brand { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; letter-spacing: -0.03em; margin-bottom: 14px; }
+.footer-tagline { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 38ch; }
+.footer-col-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px; display: block; }
+.footer-links { display: flex; flex-direction: column; gap: 10px; }
+.footer-links a { font-size: 13px; color: var(--ink-soft); transition: color 0.15s; }
+.footer-links a:hover { color: var(--ink); }
+.footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 28px; }
+.footer-copy { font-size: 12px; color: var(--muted); }
+.footer-disclaimer { font-size: 12px; color: var(--muted); max-width: 50ch; text-align: right; line-height: 1.5; }
+
+/* ── Responsive ── */
+@media (max-width: 920px) {
+  .hero { padding: 56px 0 64px; }
+  .hero h1 { font-size: 44px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; gap: 24px; }
+  .section { padding: 72px 0; }
+  .section-title, .cta-section h2 { font-size: 36px; }
+  .about-grid { grid-template-columns: 1fr; gap: 56px; }
+  .engagements .section-head { grid-template-columns: 1fr; gap: 24px; }
+  .tier-grid { grid-template-columns: 1fr; }
+  .case-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
+  .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .footer-disclaimer { text-align: left; }
+  .nav-links { gap: 18px; }
+  .nav-link { display: none; }
+}
+@media (max-width: 540px) {
+  .container, .container-narrow { padding: 0 20px; }
+  .hero h1 { font-size: 36px; }
+  .section-title, .cta-section h2 { font-size: 30px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; }
+  .case-stats { grid-template-columns: 1fr 1fr; }
+  .case-stats .case-stat:nth-child(3) { display: none; }
+  .process-grid { grid-template-columns: 1fr; }
+  .trust-inner { flex-direction: column; gap: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-brand">
+      <span class="nav-brand-mark">b</span>
+      <span>babu<em style="font-style: italic; color: var(--muted); font-weight: 300;">.law</em></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#about" class="nav-link">About</a>
+      <a href="#engagements" class="nav-link">Engagements</a>
+      <a href="#proof" class="nav-link">Proof</a>
+      <a href="#faq" class="nav-link">FAQ</a>
+      <a href="#contact" class="nav-cta">Book a call</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      <span>Available for new engagements — Q2 2026</span>
+    </div>
+    <h1>AI &amp; workflow systems for law firms <em>that actually bill.</em></h1>
+    <p class="hero-sub">
+      I'm a practicing attorney in Maryland, D.C., Florida, and Ohio. I've shipped four production legal-tech products from inside an active law practice. Now I help other firms turn AI hype into systems that capture revenue — not slide decks.
+    </p>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-primary">Book a 30-minute call <span class="btn-arrow">→</span></a>
+      <a href="#engagements" class="btn-secondary">View engagements</a>
+    </div>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <span class="label">Products shipped</span>
+        <span class="value">04</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Bar admissions</span>
+        <span class="value">MD · DC · FL · OH</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Active practice</span>
+        <span class="value">Baltimore, MD</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="label">Engagements left this quarter</span>
+        <span class="value">03</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Trust strip ── -->
+<section class="trust">
+  <div class="container trust-inner">
+    <span class="trust-label">Built &amp; deployed</span>
+    <div class="trust-list">
+      <span class="trust-item">Beat-Tix</span>
+      <span class="trust-item">Expunge<em>·</em>It</span>
+      <span class="trust-item">Innovate Legal Group</span>
+      <span class="trust-item">MD Lead Paint Practice</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── About ── -->
+<section class="section" id="about">
+  <div class="container">
+    <span class="section-eyebrow">— About</span>
+    <h2 class="section-title">Most legal AI consultants have <em>never tried a case.</em> Most legal-tech founders have never written a brief.</h2>
+    <p class="section-lede">I'm both. That combination is rare, and it's the entire point.</p>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I run a Baltimore criminal &amp; civil practice while shipping the software that runs that practice. Every workflow I'll build for your firm, I've already built for mine — under the same Bar oversight, the same MRPC 1.6 confidentiality obligations, the same client-trust requirements you live under every day.</p>
+        <p>That means no vaporware demos. No 40-page strategy decks. No recommending tools I haven't deployed in a live firm with real clients and real fee disputes. You get exactly what works, prioritized in the order that captures revenue fastest.</p>
+        <p>If you want a McKinsey-style "AI transformation roadmap," I'm not your person. If you want someone to walk in, find your three highest-value bottlenecks, and ship working systems in 90 days, this is the right conversation.</p>
+      </div>
+      <div class="about-points">
+        <div class="about-point">
+          <span class="about-point-num">01</span>
+          <div>
+            <div class="about-point-title">I ship — not slideware.</div>
+            <div class="about-point-desc">Every engagement ends with working production systems inside your firm, not a report on a shelf.</div>
+          </div>
+        </div>
+        <div class="about-point">
+          <span class="about-point-num">02</span>
+          <div>
+            <div class="about-point-title">Ethics-first by default.</div>
+            <div class="about-point-desc">UPL, fee-splitting, MRPC 1.6 — these shape every recommendation because they shape my own practice.</div>
+          </div>
+        </div>
+        <div class="about-point">
+          <span class="about-point-num">03</span>
+          <div>
+            <div class="about-point-title">Your stack, not mine.</div>
+            <div class="about-point-desc">Clio, Filevine, MyCase, GHL, Lawmatics, JotForm, LawPay — I work with what you already pay for.</div>
+          </div>
+        </div>
+        <div class="about-point">
+          <span class="about-point-num">04</span>
+          <div>
+            <div class="about-point-title">Outcomes, not dashboards.</div>
+            <div class="about-point-desc">Hours saved per matter. Leads converted. Cases handled per attorney. Anything else is theater.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Engagements ── -->
+<section class="section engagements" id="engagements">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <span class="section-eyebrow">— Engagements</span>
+        <h2 class="section-title">Three ways to <em>work together.</em></h2>
+      </div>
+      <p class="section-lede">From a single diagnostic call to a full quarterly build. Most firms start at Tier 01 and graduate to Tier 02 within a quarter.</p>
+    </div>
+
+    <div class="tier-grid">
+      <article class="tier">
+        <div class="tier-num">— Tier 01</div>
+        <h3 class="tier-name">The Practice <em>Audit</em></h3>
+        <p class="tier-pitch">A 90-minute working session plus a 10-page roadmap identifying your three highest-ROI automations — ranked by hours saved, dollars captured, and weeks-to-deploy.</p>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>Pre-call workflow questionnaire</li>
+          <li>Live screen-share session walking your stack</li>
+          <li>Written 10-page roadmap with vendor recs</li>
+          <li>30-day follow-up call included</li>
+        </ul>
+        <div class="tier-bottom">
+          <div>
+            <span class="tier-price">$2,500</span>
+            <span class="tier-price-unit">Flat fee</span>
+          </div>
+          <a href="#contact" class="tier-cta">Start here →</a>
+        </div>
+      </article>
+
+      <article class="tier">
+        <div class="tier-num">— Tier 02</div>
+        <h3 class="tier-name">The 90-Day <em>Build</em></h3>
+        <p class="tier-pitch">I embed with your firm for one quarter, ship two-to-three production automations, and train your team to operate them without me.</p>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>Weekly 60-min working sessions</li>
+          <li>Full build &amp; deployment of agreed workflows</li>
+          <li>Integration with your existing case management</li>
+          <li>Staff training videos &amp; written SOPs</li>
+          <li>30 days of post-launch support</li>
+        </ul>
+        <div class="tier-bottom">
+          <div>
+            <span class="tier-price">$15–25K</span>
+            <span class="tier-price-unit">Scoped per build</span>
+          </div>
+          <a href="#contact" class="tier-cta">Discuss scope →</a>
+        </div>
+      </article>
+
+      <article class="tier">
+        <div class="tier-num">— Tier 03</div>
+        <h3 class="tier-name">Fractional <em>AI Counsel</em></h3>
+        <p class="tier-pitch">Ongoing retainer for firms who want continuous improvement without hiring an in-house team. Strategy, builds, and ethics review on call.</p>
+        <div class="tier-divider"></div>
+        <ul class="tier-features">
+          <li>Two strategy sessions per month</li>
+          <li>One new automation deployed per quarter</li>
+          <li>Slack &amp; email access for ad-hoc questions</li>
+          <li>Vendor evaluation &amp; ethics review on request</li>
+          <li>3-month minimum, then month-to-month</li>
+        </ul>
+        <div class="tier-bottom">
+          <div>
+            <span class="tier-price">$3,500</span>
+            <span class="tier-price-unit">Per month</span>
+          </div>
+          <a href="#contact" class="tier-cta">Apply →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── Proof / Case studies ── -->
+<section class="section proof" id="proof">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-eyebrow">— Proof of work</span>
+      <h2 class="section-title">Live products. <em>Shipped from inside an active practice.</em></h2>
+      <p class="section-lede">Each one solves a real problem in my own firm. Each one is the basis for a workflow I can build for yours.</p>
+    </div>
+
+    <div class="case-grid">
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="case-tag">Consumer · Intake Automation</span>
+          <span class="case-status"><span class="dot"></span>Live</span>
+        </div>
+        <h3 class="case-name">Beat-Tix — <em>MD traffic defense platform</em></h3>
+        <p class="case-desc">End-to-end consumer flow: ticket lookup, automated quote, e-signed engagement, LawPay intake, GHL nurture, JotForm onboarding. From "got a ticket" to "represented" in under six minutes — no human intervention.</p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <span class="num">6 min</span>
+            <span class="lbl">Lead → Retained</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">$400+</span>
+            <span class="lbl">Avg matter value</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">0 hrs</span>
+            <span class="lbl">Staff time per intake</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="case-tag">Document · Petition Engine</span>
+          <span class="case-status"><span class="dot"></span>Live</span>
+        </div>
+        <h3 class="case-name">Expunge·It — <em>automated MD petitions</em></h3>
+        <p class="case-desc">Client answers twelve questions. The system pulls case data, generates the correct Maryland expungement petition with all attachments, e-signs, and routes for filing. Replaces three hours of paralegal work with three minutes of attorney review.</p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <span class="num">3 min</span>
+            <span class="lbl">Per petition</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">98%</span>
+            <span class="lbl">Field accuracy</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">$500</span>
+            <span class="lbl">Margin per matter</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="case-tag">Estimating · AI Quote Tool</span>
+          <span class="case-status"><span class="dot"></span>Live</span>
+        </div>
+        <h3 class="case-name">Moving estimate calculator</h3>
+        <p class="case-desc">Built originally for a moving company; the same architecture powers personal-injury demand calculation, settlement estimators, and fee-quote tools. AI ingests inventory photos and produces a binding estimate in under ninety seconds.</p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <span class="num">90 s</span>
+            <span class="lbl">Photo → estimate</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">+42%</span>
+            <span class="lbl">Quote → booking lift</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">SQLite</span>
+            <span class="lbl">Stack — zero overhead</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="case-meta">
+          <span class="case-tag">Practice Launch · Playbook</span>
+          <span class="case-status"><span class="dot"></span>Live</span>
+        </div>
+        <h3 class="case-name">MD lead-paint <em>litigation playbook</em></h3>
+        <p class="case-desc">A complete kit for spinning up a new practice area in fourteen days: intake form, demand letter template, statute summary, marketing pages, and AI-assisted client screening. A repeatable model for any niche litigation practice.</p>
+        <div class="case-stats">
+          <div class="case-stat">
+            <span class="num">14 d</span>
+            <span class="lbl">Idea → live practice</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">1</span>
+            <span class="lbl">Attorney to operate</span>
+          </div>
+          <div class="case-stat">
+            <span class="num">∞</span>
+            <span class="lbl">Practice areas it fits</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── Process ── -->
+<section class="section process">
+  <div class="container">
+    <span class="section-eyebrow">— How it works</span>
+    <h2 class="section-title">Four steps. <em>No fluff.</em></h2>
+    <p class="section-lede">A short, intentional path from first call to a system you actually own.</p>
+
+    <div class="process-grid">
+      <div class="proc-step">
+        <span class="proc-step-num">— 01</span>
+        <div class="proc-step-name">Discovery call</div>
+        <div class="proc-step-desc">Thirty minutes. Free. We figure out together if I can actually help — and what the highest-ROI move is for your firm right now.</div>
+      </div>
+      <div class="proc-step">
+        <span class="proc-step-num">— 02</span>
+        <div class="proc-step-name">Audit or scope</div>
+        <div class="proc-step-desc">Tier 01 audit if you're not sure where to start. Direct scoping for firms with a known pain point and budget.</div>
+      </div>
+      <div class="proc-step">
+        <span class="proc-step-num">— 03</span>
+        <div class="proc-step-name">Build &amp; deploy</div>
+        <div class="proc-step-desc">I work alongside your team in your stack. You see weekly progress in production, not in slide decks or status updates.</div>
+      </div>
+      <div class="proc-step">
+        <span class="proc-step-num">— 04</span>
+        <div class="proc-step-name">Handoff &amp; train</div>
+        <div class="proc-step-desc">Documented SOPs, training videos, and thirty days of post-launch support. The system survives without me.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="faq-grid">
+      <div>
+        <span class="section-eyebrow">— FAQ</span>
+        <h2 class="section-title">Things firm owners <em>ask before booking.</em></h2>
+        <p class="section-lede">If your question isn't answered here, raise it on the discovery call. I'd rather know the hesitation up front.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q">Are you actually a practicing attorney, or just a tech person?</div>
+          <div class="faq-a">Both. I'm licensed in Maryland, D.C., Florida, and Ohio, and I run an active criminal &amp; civil practice in Baltimore. I'm at the courthouse most weeks. I build software because I needed it for my own practice first.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Is this legal advice? Are you my lawyer?</div>
+          <div class="faq-a">No. This is business consulting — workflow, software, and operations — provided through a separate consulting LLC. I'm not your firm's outside counsel and we don't form an attorney-client relationship. If you need ethics opinions specific to your jurisdiction, I'll refer you to ethics counsel licensed where you practice.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Will my client data be safe?</div>
+          <div class="faq-a">Yes. Every system I build is designed for MRPC 1.6 confidentiality from the ground up. No client data leaves your environment unless you explicitly approve a vendor, and I'll always recommend self-hosted or enterprise-tier options when client material is involved. Mutual NDA before any audit work begins.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do I need to be technical?</div>
+          <div class="faq-a">No. The whole point is that you don't. I work directly with your existing team — paralegals, intake, office manager — and leave behind systems they can run without writing a line of code.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">What size firm do you typically work with?</div>
+          <div class="faq-a">Solo to roughly twenty-five attorneys. Larger firms have internal innovation teams; smaller firms get the most leverage from a single sharp engagement.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q">Do you take equity instead of cash?</div>
+          <div class="faq-a">Occasionally, for the right firm — typically a hybrid of reduced cash plus a small revenue share on the workflows we build together. Raise it on the discovery call.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ── -->
+<section class="cta-section" id="contact">
+  <div class="container-narrow">
+    <span class="section-eyebrow">— Get started</span>
+    <h2>Stop talking about AI. <em>Start billing more.</em></h2>
+    <p>Book a thirty-minute discovery call. If I can't help, I'll tell you on the call and refer you to someone who can.</p>
+    <div class="hero-ctas">
+      <a href="mailto:nirav@innovatelegalgroup.com?subject=AI%20Consulting%20Inquiry" class="btn-primary">Email to schedule <span class="btn-arrow">→</span></a>
+      <a href="#engagements" class="btn-secondary">Review engagements</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">babu<em style="font-style: italic; color: var(--muted); font-weight: 300;">.law</em></div>
+        <p class="footer-tagline">Nirav Babu — practicing attorney building AI &amp; workflow systems for the next generation of small &amp; mid-sized law firms.</p>
+      </div>
+      <div>
+        <span class="footer-col-title">Engage</span>
+        <div class="footer-links">
+          <a href="#engagements">Audit</a>
+          <a href="#engagements">90-Day Build</a>
+          <a href="#engagements">Fractional</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Proof</span>
+        <div class="footer-links">
+          <a href="https://beat-tix-client-production.up.railway.app/" target="_blank" rel="noopener">Beat-Tix</a>
+          <a href="#proof">Expunge·It</a>
+          <a href="#proof">Lead Paint Kit</a>
+        </div>
+      </div>
+      <div>
+        <span class="footer-col-title">Contact</span>
+        <div class="footer-links">
+          <a href="mailto:nirav@innovatelegalgroup.com">Email</a>
+          <a href="#" rel="noopener">LinkedIn</a>
+          <a href="tel:+13019714880">301·971·4880</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 babu.law · Nirav Babu</span>
+      <span class="footer-disclaimer">Consulting services provided through Innovate Law Firm LLC, Baltimore, Maryland. This site does not provide legal advice or form an attorney-client relationship.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
