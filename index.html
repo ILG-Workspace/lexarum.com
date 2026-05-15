@@ -111,7 +111,7 @@ img, svg { display: block; max-width: 100%; }
 
 .hero-meta {
   margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line);
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
+  display: grid; grid-template-columns: repeat(2, max-content); gap: 64px;
 }
 .hero-meta-item .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; display: block; }
 .hero-meta-item .value { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -0.02em; color: var(--ink); display: block; line-height: 1.1; }
@@ -431,7 +431,7 @@ section { scroll-margin-top: 80px; }
     </div>
     <h1>AI &amp; workflow systems for law firms <em>that actually bill.</em></h1>
     <p class="hero-sub">
-      I'm a practicing attorney in Maryland, D.C., Florida, and Ohio. I've shipped four production legal-tech products from inside an active law practice. Now I help other firms turn AI hype into systems that capture revenue — not slide decks.
+      I'm a practicing attorney. I've shipped four production legal-tech products from inside an active law practice. Now I help other firms turn AI hype into systems that capture revenue — not slide decks.
     </p>
     <div class="hero-ctas">
       <a href="#contact" class="btn-primary">Book a 30-minute call <span class="btn-arrow">→</span></a>
@@ -441,14 +441,6 @@ section { scroll-margin-top: 80px; }
       <div class="hero-meta-item">
         <span class="label">Products shipped</span>
         <span class="value">04</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="label">Bar admissions</span>
-        <span class="value">MD · DC · FL · OH</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="label">Active practice</span>
-        <span class="value">Baltimore, MD</span>
       </div>
       <div class="hero-meta-item">
         <span class="label">Engagements left this quarter</span>
@@ -466,7 +458,7 @@ section { scroll-margin-top: 80px; }
       <span class="trust-item">Beat-Tix</span>
       <span class="trust-item">Expunge<em>·</em>It</span>
       <span class="trust-item">Innovate Legal Group</span>
-      <span class="trust-item">MD Lead Paint Practice</span>
+      <span class="trust-item">Lead Paint Practice</span>
     </div>
   </div>
 </section>
@@ -480,7 +472,7 @@ section { scroll-margin-top: 80px; }
 
     <div class="about-grid">
       <div class="about-text">
-        <p>I run a Baltimore criminal &amp; civil practice while shipping the software that runs that practice. Every workflow I'll build for your firm, I've already built for mine — under the same Bar oversight, the same MRPC 1.6 confidentiality obligations, the same client-trust requirements you live under every day.</p>
+        <p>I run a criminal &amp; civil practice while shipping the software that runs that practice. Every workflow I'll build for your firm, I've already built for mine — under the same Bar oversight, the same MRPC 1.6 confidentiality obligations, the same client-trust requirements you live under every day.</p>
         <p>That means no vaporware demos. No 40-page strategy decks. No recommending tools I haven't deployed in a live firm with real clients and real fee disputes. You get exactly what works, prioritized in the order that captures revenue fastest.</p>
         <p>If you want a McKinsey-style "AI transformation roadmap," I'm not your person. If you want someone to walk in, find your three highest-value bottlenecks, and ship working systems in 90 days, this is the right conversation.</p>
       </div>
@@ -731,7 +723,7 @@ section { scroll-margin-top: 80px; }
           <span class="case-tag">Consumer · Intake Automation</span>
           <span class="case-status"><span class="dot"></span>Live</span>
         </div>
-        <h3 class="case-name">Beat-Tix — <em>MD traffic defense platform</em></h3>
+        <h3 class="case-name">Beat-Tix — <em>traffic defense platform</em></h3>
         <p class="case-desc">End-to-end consumer flow: ticket lookup, automated quote, e-signed engagement, LawPay intake, GHL nurture, JotForm onboarding. From "got a ticket" to "represented" in under six minutes — no human intervention.</p>
         <div class="case-stats">
           <div class="case-stat">
@@ -754,8 +746,8 @@ section { scroll-margin-top: 80px; }
           <span class="case-tag">Document · Petition Engine</span>
           <span class="case-status"><span class="dot"></span>Live</span>
         </div>
-        <h3 class="case-name">Expunge·It — <em>automated MD petitions</em></h3>
-        <p class="case-desc">Client answers twelve questions. The system pulls case data, generates the correct Maryland expungement petition with all attachments, e-signs, and routes for filing. Replaces three hours of paralegal work with three minutes of attorney review.</p>
+        <h3 class="case-name">Expunge·It — <em>automated petitions</em></h3>
+        <p class="case-desc">Client answers twelve questions. The system pulls case data, generates the correct expungement petition with all attachments, e-signs, and routes for filing. Replaces three hours of paralegal work with three minutes of attorney review.</p>
         <div class="case-stats">
           <div class="case-stat">
             <span class="num">3 min</span>
@@ -800,7 +792,7 @@ section { scroll-margin-top: 80px; }
           <span class="case-tag">Practice Launch · Playbook</span>
           <span class="case-status"><span class="dot"></span>Live</span>
         </div>
-        <h3 class="case-name">MD lead-paint <em>litigation playbook</em></h3>
+        <h3 class="case-name">Lead-paint <em>litigation playbook</em></h3>
         <p class="case-desc">A complete kit for spinning up a new practice area in fourteen days: intake form, demand letter template, statute summary, marketing pages, and AI-assisted client screening. A repeatable model for any niche litigation practice.</p>
         <div class="case-stats">
           <div class="case-stat">
@@ -866,7 +858,7 @@ section { scroll-margin-top: 80px; }
       <div class="faq-list">
         <div class="faq-item">
           <div class="faq-q">Are you actually a practicing attorney, or just a tech person?</div>
-          <div class="faq-a">Both. I'm licensed in Maryland, D.C., Florida, and Ohio, and I run an active criminal &amp; civil practice in Baltimore. I'm at the courthouse most weeks. I build software because I needed it for my own practice first.</div>
+          <div class="faq-a">Both. I'm a licensed, practicing attorney with an active criminal &amp; civil practice. I'm at the courthouse most weeks. I build software because I needed it for my own practice first.</div>
         </div>
         <div class="faq-item">
           <div class="faq-q">Is this legal advice? Are you my lawyer?</div>
@@ -941,7 +933,7 @@ section { scroll-margin-top: 80px; }
     </div>
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 babu.law · Nirav Babu</span>
-      <span class="footer-disclaimer">Consulting services provided through Innovate Law Firm LLC, Baltimore, Maryland. This site does not provide legal advice or form an attorney-client relationship.</span>
+      <span class="footer-disclaimer">Consulting services provided through Innovate Law Firm LLC. This site does not provide legal advice or form an attorney-client relationship.</span>
     </div>
   </div>
 </footer>
