@@ -6,7 +6,7 @@
 <title>babu.law — AI &amp; Workflow Systems for Law Firms · Nirav Babu</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
@@ -17,8 +17,12 @@
   --line: rgb(232, 231, 231);
   --surface: rgb(242, 242, 242);
   --surface-hover: rgb(232, 231, 231);
-  --accent: rgb(86, 149, 246);
-  --accent-soft: rgba(86, 149, 246, 0.12);
+  --teal: #0d7377;
+  --teal-deep: #095658;
+  --teal-soft: rgba(13, 115, 119, 0.10);
+  --teal-soft-2: rgba(13, 115, 119, 0.18);
+  --accent: #0d7377;
+  --accent-soft: rgba(13, 115, 119, 0.12);
 }
 html, body {
   background: var(--bg);
@@ -33,7 +37,7 @@ body {
   line-height: 1.55;
   letter-spacing: -0.005em;
 }
-.serif { font-family: 'Fraunces', Georgia, serif; font-variation-settings: 'opsz' 96; letter-spacing: -0.04em; font-weight: 400; }
+.serif { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; letter-spacing: -0.025em; font-weight: 600; }
 .mono  { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; letter-spacing: 0.02em; text-transform: uppercase; }
 
 a { color: inherit; text-decoration: none; }
@@ -57,45 +61,44 @@ img, svg { display: block; max-width: 100%; }
   width: 26px; height: 26px; border-radius: 6px;
   background: var(--ink); color: var(--bg);
   display: grid; place-items: center;
-  font-family: 'Fraunces', serif; font-weight: 500; font-size: 14px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 500; font-size: 14px;
 }
 .nav-links { display: flex; align-items: center; gap: 32px; }
 .nav-link { color: var(--ink-soft); font-size: 13px; font-weight: 400; transition: color 0.15s; }
 .nav-link:hover { color: var(--ink); }
 .nav-cta {
-  background: var(--ink); color: var(--bg);
+  background: var(--teal); color: #ffffff;
   font-size: 13px; font-weight: 500;
   padding: 10px 18px; border-radius: 6px; border: none;
   transition: background 0.15s;
 }
-.nav-cta:hover { background: #2a2a2a; }
+.nav-cta:hover { background: var(--teal-deep); }
 
 /* ── Hero ── */
 .hero { padding: 88px 0 96px; border-bottom: 1px solid var(--line); }
 .hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 6px; background: var(--bg); margin-bottom: 32px; }
-.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: #2a8c5e; box-shadow: 0 0 0 3px rgba(42, 140, 94, 0.18); }
+.hero-eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 3px var(--teal-soft-2); }
 .hero-eyebrow span:not(.dot) { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.04em; color: var(--ink-soft); text-transform: uppercase; }
 .hero h1 {
-  font-family: 'Fraunces', Georgia, serif;
-  font-variation-settings: 'opsz' 144;
-  font-weight: 400;
-  font-size: 76px;
-  line-height: 0.98;
-  letter-spacing: -0.045em;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   margin-bottom: 28px;
-  max-width: 18ch;
+  max-width: 20ch;
 }
-.hero h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
+.hero h1 em { font-style: italic; font-weight: 600; color: var(--teal); }
 .hero-sub { font-size: 16px; line-height: 1.6; color: var(--muted); max-width: 60ch; margin-bottom: 36px; }
 .hero-ctas { display: flex; align-items: center; gap: 14px; }
 .btn-primary {
-  background: var(--ink); color: var(--bg);
+  background: var(--teal); color: #ffffff;
   font-size: 14px; font-weight: 500;
   padding: 13px 22px; border-radius: 6px; border: none;
   display: inline-flex; align-items: center; gap: 8px;
   transition: background 0.15s, transform 0.1s;
 }
-.btn-primary:hover { background: #2a2a2a; }
+.btn-primary:hover { background: var(--teal-deep); }
 .btn-secondary {
   background: var(--bg); color: var(--ink);
   font-size: 14px; font-weight: 500;
@@ -111,31 +114,30 @@ img, svg { display: block; max-width: 100%; }
   display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;
 }
 .hero-meta-item .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; display: block; }
-.hero-meta-item .value { font-family: 'Fraunces', serif; font-weight: 400; font-size: 28px; letter-spacing: -0.03em; color: var(--ink); display: block; line-height: 1; }
+.hero-meta-item .value { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 24px; letter-spacing: -0.02em; color: var(--ink); display: block; line-height: 1.1; }
 
 /* ── Trust strip ── */
 .trust { padding: 36px 0; border-bottom: 1px solid var(--line); }
 .trust-inner { display: flex; align-items: center; justify-content: center; gap: 56px; flex-wrap: wrap; }
 .trust-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
 .trust-list { display: flex; gap: 48px; flex-wrap: wrap; align-items: center; justify-content: center; }
-.trust-item { font-family: 'Fraunces', serif; font-weight: 400; font-size: 19px; color: var(--ink-soft); letter-spacing: -0.02em; }
-.trust-item em { font-style: italic; color: var(--muted); }
+.trust-item { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 16px; color: var(--ink-soft); letter-spacing: -0.01em; }
+.trust-item em { font-style: italic; font-weight: 600; color: var(--teal); }
 
 /* ── Section base ── */
 section { scroll-margin-top: 80px; }
 .section { padding: 112px 0; border-bottom: 1px solid var(--line); }
 .section-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px; display: block; }
 .section-title {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 96;
-  font-weight: 400;
-  font-size: 52px;
-  line-height: 1.02;
-  letter-spacing: -0.04em;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: 44px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   max-width: 22ch;
   margin-bottom: 24px;
 }
-.section-title em { font-style: italic; font-weight: 300; color: var(--muted); }
+.section-title em { font-style: italic; font-weight: 600; color: var(--teal); }
 .section-lede { font-size: 16px; color: var(--muted); max-width: 58ch; line-height: 1.6; }
 
 /* ── About ── */
@@ -146,7 +148,7 @@ section { scroll-margin-top: 80px; }
 .about-point { padding: 28px 0; border-top: 1px solid var(--line); display: grid; grid-template-columns: 64px 1fr; gap: 20px; align-items: start; }
 .about-point:last-child { border-bottom: 1px solid var(--line); }
 .about-point-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); padding-top: 4px; }
-.about-point-title { font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 8px; }
+.about-point-title { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 8px; }
 .about-point-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
 
 /* ── Engagements ── */
@@ -160,17 +162,17 @@ section { scroll-margin-top: 80px; }
   display: flex; flex-direction: column;
   transition: border-color 0.15s, transform 0.15s;
 }
-.tier:hover { border-color: rgba(18, 18, 18, 0.3); }
+.tier:hover { border-color: rgba(13, 115, 119, 0.35); }
 .tier-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 24px; }
 .tier-name {
-  font-family: 'Fraunces', serif;
-  font-weight: 400;
-  font-size: 28px;
-  line-height: 1.05;
-  letter-spacing: -0.03em;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
   margin-bottom: 14px;
 }
-.tier-name em { font-style: italic; color: var(--muted); }
+.tier-name em { font-style: italic; font-weight: 600; color: var(--teal); }
 .tier-pitch { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; }
 .tier-divider { height: 1px; background: var(--line); margin: 24px 0; }
 .tier-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
@@ -180,9 +182,9 @@ section { scroll-margin-top: 80px; }
   width: 8px; height: 1px; background: var(--ink-soft);
 }
 .tier-bottom { margin-top: auto; padding-top: 24px; border-top: 1px solid var(--line); display: flex; align-items: end; justify-content: space-between; }
-.tier-price { font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; letter-spacing: -0.03em; line-height: 1; }
+.tier-price { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -0.02em; line-height: 1.1; color: var(--teal); }
 .tier-price-unit { display: block; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 6px; }
-.tier-cta { font-size: 13px; font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--ink); padding-bottom: 1px; }
+.tier-cta { font-size: 13px; font-weight: 500; color: var(--teal); border-bottom: 1px solid var(--teal); padding-bottom: 1px; }
 
 /* ── Proof / Case studies ── */
 .proof .section-head { margin-bottom: 64px; }
@@ -194,27 +196,28 @@ section { scroll-margin-top: 80px; }
   padding: 36px;
   transition: border-color 0.15s;
 }
-.case:hover { border-color: rgba(18, 18, 18, 0.3); }
+.case:hover { border-color: rgba(13, 115, 119, 0.35); }
 .case-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
 .case-tag { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
-.case-status { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #2a8c5e; text-transform: uppercase; letter-spacing: 0.08em; }
-.case-status .dot { width: 6px; height: 6px; border-radius: 50%; background: #2a8c5e; box-shadow: 0 0 0 3px rgba(42, 140, 94, 0.18); }
-.case-name { font-family: 'Fraunces', serif; font-weight: 400; font-size: 26px; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 12px; }
-.case-name em { font-style: italic; color: var(--muted); }
+.case-status { display: flex; align-items: center; gap: 6px; font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--teal); text-transform: uppercase; letter-spacing: 0.08em; }
+.case-status .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 3px var(--teal-soft-2); }
+.case-name { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; margin-bottom: 12px; }
+.case-name em { font-style: italic; font-weight: 600; color: var(--teal); }
 .case-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 28px; }
 .case-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; padding-top: 24px; border-top: 1px solid var(--line); }
-.case-stat .num { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; letter-spacing: -0.03em; line-height: 1; display: block; margin-bottom: 6px; }
+.case-stat .num { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 19px; letter-spacing: -0.01em; line-height: 1.1; display: block; margin-bottom: 6px; color: var(--teal); }
 .case-stat .lbl { font-family: 'JetBrains Mono', monospace; font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; line-height: 1.4; display: block; }
 
 /* ── Process ── */
 .process { background: var(--ink); color: var(--bg); border-bottom: 1px solid var(--ink); }
-.process .section-eyebrow { color: rgba(252, 251, 251, 0.6); }
+.process .section-eyebrow { color: var(--teal); }
+.process .proc-step-num { color: var(--teal); }
 .process .section-title { color: var(--bg); }
 .process .section-lede { color: rgba(252, 251, 251, 0.6); }
 .process-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; margin-top: 72px; }
 .proc-step { padding: 28px 0; border-top: 1px solid rgba(252, 251, 251, 0.15); }
 .proc-step-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(252, 251, 251, 0.5); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px; display: block; }
-.proc-step-name { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; line-height: 1.15; letter-spacing: -0.03em; margin-bottom: 12px; color: var(--bg); }
+.proc-step-name { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 18px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 12px; color: var(--bg); }
 .proc-step-desc { font-size: 13px; color: rgba(252, 251, 251, 0.6); line-height: 1.6; }
 
 /* ── FAQ ── */
@@ -222,29 +225,28 @@ section { scroll-margin-top: 80px; }
 .faq-list { display: flex; flex-direction: column; }
 .faq-item { padding: 28px 0; border-top: 1px solid var(--line); }
 .faq-item:last-child { border-bottom: 1px solid var(--line); }
-.faq-q { font-family: 'Fraunces', serif; font-weight: 400; font-size: 19px; letter-spacing: -0.03em; line-height: 1.3; margin-bottom: 12px; }
+.faq-q { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 17px; letter-spacing: -0.01em; line-height: 1.4; margin-bottom: 12px; }
 .faq-a { font-size: 14px; color: var(--muted); line-height: 1.65; }
 
 /* ── CTA ── */
 .cta-section { padding: 128px 0; text-align: center; border-bottom: 1px solid var(--line); }
 .cta-section h2 {
-  font-family: 'Fraunces', serif;
-  font-variation-settings: 'opsz' 144;
-  font-weight: 400;
-  font-size: 64px;
-  line-height: 1.0;
-  letter-spacing: -0.045em;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  font-size: 52px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   margin: 0 auto 28px;
-  max-width: 18ch;
+  max-width: 20ch;
 }
-.cta-section h2 em { font-style: italic; color: var(--muted); font-weight: 300; }
+.cta-section h2 em { font-style: italic; font-weight: 600; color: var(--teal); }
 .cta-section p { font-size: 16px; color: var(--muted); max-width: 52ch; margin: 0 auto 40px; line-height: 1.6; }
 .cta-section .hero-ctas { justify-content: center; }
 
 /* ── Footer ── */
 .footer { padding: 56px 0 40px; }
 .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 40px; border-bottom: 1px solid var(--line); }
-.footer-brand { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; letter-spacing: -0.03em; margin-bottom: 14px; }
+.footer-brand { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 600; font-size: 18px; letter-spacing: -0.01em; margin-bottom: 14px; }
 .footer-tagline { font-size: 13px; color: var(--muted); line-height: 1.6; max-width: 38ch; }
 .footer-col-title { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 18px; display: block; }
 .footer-links { display: flex; flex-direction: column; gap: 10px; }
@@ -726,7 +728,7 @@ section { scroll-margin-top: 80px; }
 
     <div class="openclaw-pricing">
       <span class="section-eyebrow">PRICING</span>
-      <h3>Priced so the math is <em style="font-style: italic; color: var(--muted); font-weight: 300;">obvious.</em></h3>
+      <h3>Priced so the math is <em style="font-style: italic; font-weight: 600; color: var(--teal);">obvious.</em></h3>
       <p class="pricing-sub">If you bill at $300/hr, the Pro plan pays for itself by Tuesday morning.</p>
       <div class="price-pills">
         <span class="price-pill"><span class="name">Starter</span> <span class="amount">$299/mo</span></span>
@@ -934,7 +936,7 @@ section { scroll-margin-top: 80px; }
   <div class="container">
     <div class="footer-grid">
       <div>
-        <div class="footer-brand">babu<em style="font-style: italic; color: var(--muted); font-weight: 300;">.law</em></div>
+        <div class="footer-brand">babu<em style="font-style: italic; font-weight: 600; color: var(--teal);">.law</em></div>
         <p class="footer-tagline">Nirav Babu — practicing attorney building AI &amp; workflow systems for the next generation of small &amp; mid-sized law firms.</p>
       </div>
       <div>
