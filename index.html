@@ -254,102 +254,138 @@ section { scroll-margin-top: 80px; }
 .footer-copy { font-size: 12px; color: var(--muted); }
 .footer-disclaimer { font-size: 12px; color: var(--muted); max-width: 50ch; text-align: right; line-height: 1.5; }
 
-/* ── OpenClaw Product Section ── */
-.openclaw .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; margin-bottom: 56px; }
+/* ── OpenClaw Product Section (matches OpenClaw brand mockup) ── */
+.openclaw {
+  --oc-teal: #0d7377;
+  --oc-teal-deep: #095658;
+  --oc-teal-soft: rgba(13, 115, 119, 0.10);
+  --oc-teal-soft-2: rgba(13, 115, 119, 0.18);
+  background: #faf8f3;
+  border-bottom: none;
+}
+
+/* Section head — sans-serif, bold, teal italic accent */
+.openclaw .section-eyebrow { color: var(--oc-teal); font-weight: 500; letter-spacing: 0.10em; }
+.openclaw .section-title {
+  font-family: 'Inter', -apple-system, sans-serif;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+.openclaw .section-title em {
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  font-weight: 600;
+  color: var(--oc-teal);
+}
+.openclaw .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; margin-bottom: 64px; }
+.openclaw .section-lede { color: var(--muted); }
+
+/* Agent cards */
 .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .agent-card {
-  background: var(--bg);
+  background: #ffffff;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 32px;
   display: flex; flex-direction: column;
-  transition: border-color 0.15s;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
-.agent-card:hover { border-color: rgba(18, 18, 18, 0.3); }
-.agent-card.featured { border-color: rgba(42, 140, 94, 0.4); }
+.agent-card:hover { border-color: rgba(13, 115, 119, 0.3); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.agent-card.featured { border-color: rgba(13, 115, 119, 0.45); }
 .agent-icon {
-  width: 44px; height: 44px; border-radius: 8px;
-  background: rgba(42, 140, 94, 0.10);
-  color: #2a8c5e;
+  width: 44px; height: 44px; border-radius: 10px;
+  background: var(--oc-teal-soft);
+  color: var(--oc-teal);
   display: grid; place-items: center;
   margin-bottom: 24px;
 }
 .agent-icon svg { width: 20px; height: 20px; }
-.agent-name { font-family: 'Fraunces', serif; font-weight: 400; font-size: 22px; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 12px; }
+.agent-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 19px; letter-spacing: -0.01em; line-height: 1.3;
+  margin-bottom: 12px; color: var(--ink);
+}
 .agent-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; flex: 1; }
 .agent-savings {
   display: inline-flex; align-self: flex-start;
-  background: rgba(42, 140, 94, 0.10); color: #2a8c5e;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 500;
-  text-transform: uppercase; letter-spacing: 0.06em;
-  padding: 6px 10px; border-radius: 4px;
+  background: var(--oc-teal-soft); color: var(--oc-teal);
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
+  padding: 6px 12px; border-radius: 999px;
 }
 
-/* OpenClaw testimonials */
-.testimonial-block { margin-top: 96px; }
+/* Testimonials */
+.testimonial-block { margin-top: 112px; }
 .testimonial-block .section-eyebrow { text-align: center; display: block; margin-bottom: 14px; }
 .testimonial-block .section-title { text-align: center; margin: 0 auto 56px; max-width: 28ch; }
 .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .testimonial {
-  background: var(--bg);
+  background: #ffffff;
   border: 1px solid var(--line);
-  border-radius: 6px;
+  border-radius: 10px;
   padding: 32px;
   display: flex; flex-direction: column;
 }
-.testimonial-quote { font-size: 14px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 28px; flex: 1; }
+.testimonial-quote { font-size: 14.5px; color: var(--ink-soft); line-height: 1.65; margin-bottom: 28px; flex: 1; }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
 .testimonial-avatar {
   width: 36px; height: 36px; border-radius: 50%;
-  background: rgba(42, 140, 94, 0.15); color: #2a8c5e;
+  background: var(--oc-teal); color: #ffffff;
   display: grid; place-items: center;
-  font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 500;
+  font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
   letter-spacing: 0.02em;
 }
 .testimonial-meta { display: flex; flex-direction: column; gap: 2px; }
-.testimonial-name { font-size: 13px; font-weight: 500; color: var(--ink); }
+.testimonial-name { font-family: 'Inter', sans-serif; font-size: 13.5px; font-weight: 600; color: var(--ink); }
 .testimonial-role { font-size: 12px; color: var(--muted); }
 
-/* OpenClaw how-it-works (dark block) */
+/* How-it-works (dark block) */
 .openclaw-how {
-  background: var(--ink); color: var(--bg);
-  border-radius: 8px;
-  padding: 64px 48px;
-  margin-top: 96px;
+  background: #1a1a1a; color: var(--bg);
+  border-radius: 14px;
+  padding: 72px 56px;
+  margin-top: 112px;
   text-align: center;
 }
-.openclaw-how .section-eyebrow { color: rgba(252, 251, 251, 0.6); text-align: center; display: block; margin-bottom: 14px; }
+.openclaw-how .section-eyebrow { color: var(--oc-teal); text-align: center; display: block; margin-bottom: 14px; }
 .openclaw-how h3 {
-  font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 96;
-  font-weight: 400; font-size: 40px; line-height: 1.05; letter-spacing: -0.04em;
-  max-width: 22ch; margin: 0 auto 48px; color: var(--bg);
+  font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 44px; line-height: 1.08; letter-spacing: -0.025em;
+  max-width: 22ch; margin: 0 auto 56px; color: #ffffff;
 }
-.openclaw-how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; text-align: left; }
-.openclaw-how-step { padding-top: 24px; border-top: 1px solid rgba(252, 251, 251, 0.15); }
-.openclaw-how-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #2a8c5e; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 16px; display: block; }
-.openclaw-how-name { font-family: 'Fraunces', serif; font-weight: 400; font-size: 20px; line-height: 1.2; letter-spacing: -0.03em; margin-bottom: 10px; color: var(--bg); }
-.openclaw-how-desc { font-size: 13px; color: rgba(252, 251, 251, 0.65); line-height: 1.6; }
+.openclaw-how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: left; }
+.openclaw-how-step { }
+.openclaw-how-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--oc-teal); letter-spacing: 0.06em; margin-bottom: 16px; display: block; }
+.openclaw-how-name { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 12px; color: #ffffff; }
+.openclaw-how-desc { font-size: 13.5px; color: rgba(255, 255, 255, 0.62); line-height: 1.6; }
 
-/* OpenClaw pricing teaser */
+/* Pricing teaser */
 .openclaw-pricing {
-  margin-top: 96px;
-  background: var(--surface);
-  border-radius: 8px;
-  padding: 56px 48px;
+  margin-top: 32px;
+  background: #efece5;
+  border-radius: 14px;
+  padding: 64px 48px;
   text-align: center;
 }
 .openclaw-pricing .section-eyebrow { text-align: center; display: block; margin-bottom: 14px; }
 .openclaw-pricing h3 {
-  font-family: 'Fraunces', serif; font-variation-settings: 'opsz' 96;
-  font-weight: 400; font-size: 36px; line-height: 1.05; letter-spacing: -0.04em;
-  margin-bottom: 12px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600; font-size: 40px; line-height: 1.08; letter-spacing: -0.025em;
+  margin-bottom: 14px;
 }
-.openclaw-pricing .pricing-sub { font-size: 14px; color: var(--muted); margin-bottom: 28px; }
-.price-pills { display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap; margin-bottom: 32px; }
+.openclaw-pricing h3 em {
+  font-family: 'Inter', sans-serif; font-style: italic; font-weight: 600; color: var(--oc-teal);
+}
+.openclaw-pricing .pricing-sub { font-size: 14.5px; color: var(--muted); margin-bottom: 32px; }
+.price-pills { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; margin-bottom: 36px; }
 .price-pill { font-size: 14px; color: var(--ink-soft); display: inline-flex; align-items: baseline; gap: 6px; }
-.price-pill .name { font-weight: 500; color: var(--ink); }
-.price-pill .amount { font-family: 'Fraunces', serif; font-weight: 400; letter-spacing: -0.02em; color: #2a8c5e; font-size: 16px; }
-.price-pill .popular { font-family: 'JetBrains Mono', monospace; font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-left: 4px; }
+.price-pill .name { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--ink); }
+.price-pill .amount { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--oc-teal); font-size: 15px; }
+.price-pill .popular { font-size: 11px; color: var(--muted); margin-left: 4px; font-weight: 400; }
+.openclaw-pricing .btn-primary { background: var(--oc-teal); }
+.openclaw-pricing .btn-primary:hover { background: var(--oc-teal-deep); }
 
 /* ── Responsive ── */
 @media (max-width: 920px) {
@@ -587,7 +623,7 @@ section { scroll-margin-top: 80px; }
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="section-eyebrow">— Product · OpenClaw</span>
+        <span class="section-eyebrow">PRODUCT · OPENCLAW</span>
         <h2 class="section-title">Or skip the build — <em>turn on the agents.</em></h2>
       </div>
       <p class="section-lede">OpenClaw is the productized version of what I'd build for you in a Tier 02 engagement. Pre-trained AI agents that run inside your existing stack — for firms that want the outcome without the engagement timeline.</p>
@@ -623,7 +659,7 @@ section { scroll-margin-top: 80px; }
     </div>
 
     <div class="testimonial-block">
-      <span class="section-eyebrow">— From real solo and small firms</span>
+      <span class="section-eyebrow">FROM REAL SOLO AND SMALL FIRMS</span>
       <h3 class="section-title">Other attorneys who got their <em>evenings back.</em></h3>
       <div class="testimonial-grid">
         <article class="testimonial">
@@ -662,7 +698,7 @@ section { scroll-margin-top: 80px; }
     </div>
 
     <div class="openclaw-how">
-      <span class="section-eyebrow">— How it works</span>
+      <span class="section-eyebrow">HOW IT WORKS</span>
       <h3>Live in your firm by the end of the afternoon.</h3>
       <div class="openclaw-how-grid">
         <div class="openclaw-how-step">
@@ -689,7 +725,7 @@ section { scroll-margin-top: 80px; }
     </div>
 
     <div class="openclaw-pricing">
-      <span class="section-eyebrow">— Pricing</span>
+      <span class="section-eyebrow">PRICING</span>
       <h3>Priced so the math is <em style="font-style: italic; color: var(--muted); font-weight: 300;">obvious.</em></h3>
       <p class="pricing-sub">If you bill at $300/hr, the Pro plan pays for itself by Tuesday morning.</p>
       <div class="price-pills">
