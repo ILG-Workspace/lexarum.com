@@ -256,9 +256,9 @@ section { scroll-margin-top: 80px; }
 .footer-copy { font-size: 12px; color: var(--muted); }
 .footer-disclaimer { font-size: 12px; color: var(--muted); max-width: 50ch; text-align: right; line-height: 1.5; }
 
-/* ── OpenClaw Product Section (matches OpenClaw brand mockup) ── */
+/* ── AdminAgents Product Section (matches AdminAgents brand mockup) ── */
 /* Section head layout */
-.openclaw .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; margin-bottom: 64px; }
+.adminagents .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; margin-bottom: 64px; }
 
 /* Agent cards */
 .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -319,50 +319,50 @@ section { scroll-margin-top: 80px; }
 .testimonial-role { font-size: 12px; color: var(--muted); }
 
 /* How-it-works (dark block) */
-.openclaw-how {
+.adminagents-how {
   background: var(--ink); color: var(--bg);
   border-radius: 6px;
   padding: 72px 56px;
   margin-top: 112px;
   text-align: center;
 }
-.openclaw-how .section-eyebrow { color: var(--teal); text-align: center; display: block; margin-bottom: 14px; }
-.openclaw-how h3 {
+.adminagents-how .section-eyebrow { color: var(--teal); text-align: center; display: block; margin-bottom: 14px; }
+.adminagents-how h3 {
   font-family: 'Inter', sans-serif;
   font-weight: 600; font-size: 44px; line-height: 1.08; letter-spacing: -0.025em;
   max-width: 22ch; margin: 0 auto 56px; color: #ffffff;
 }
-.openclaw-how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: left; }
-.openclaw-how-step { }
-.openclaw-how-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal); letter-spacing: 0.06em; margin-bottom: 16px; display: block; }
-.openclaw-how-name { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 12px; color: #ffffff; }
-.openclaw-how-desc { font-size: 13.5px; color: rgba(255, 255, 255, 0.62); line-height: 1.6; }
+.adminagents-how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: left; }
+.adminagents-how-step { }
+.adminagents-how-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal); letter-spacing: 0.06em; margin-bottom: 16px; display: block; }
+.adminagents-how-name { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 12px; color: #ffffff; }
+.adminagents-how-desc { font-size: 13.5px; color: rgba(255, 255, 255, 0.62); line-height: 1.6; }
 
 /* Pricing teaser */
-.openclaw-pricing {
+.adminagents-pricing {
   margin-top: 32px;
   background: var(--surface);
   border-radius: 6px;
   padding: 64px 48px;
   text-align: center;
 }
-.openclaw-pricing .section-eyebrow { text-align: center; display: block; margin-bottom: 14px; }
-.openclaw-pricing h3 {
+.adminagents-pricing .section-eyebrow { text-align: center; display: block; margin-bottom: 14px; }
+.adminagents-pricing h3 {
   font-family: 'Inter', sans-serif;
   font-weight: 600; font-size: 40px; line-height: 1.08; letter-spacing: -0.025em;
   margin-bottom: 14px;
 }
-.openclaw-pricing h3 em {
+.adminagents-pricing h3 em {
   font-family: 'Inter', sans-serif; font-style: italic; font-weight: 600; color: var(--teal);
 }
-.openclaw-pricing .pricing-sub { font-size: 14.5px; color: var(--muted); margin-bottom: 32px; }
+.adminagents-pricing .pricing-sub { font-size: 14.5px; color: var(--muted); margin-bottom: 32px; }
 .price-pills { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; margin-bottom: 36px; }
 .price-pill { font-size: 14px; color: var(--ink-soft); display: inline-flex; align-items: baseline; gap: 6px; }
 .price-pill .name { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--ink); }
 .price-pill .amount { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--teal); font-size: 15px; }
 .price-pill .popular { font-size: 11px; color: var(--muted); margin-left: 4px; font-weight: 400; }
-.openclaw-pricing .btn-primary { background: var(--teal); }
-.openclaw-pricing .btn-primary:hover { background: var(--teal-deep); }
+.adminagents-pricing .btn-primary { background: var(--teal); }
+.adminagents-pricing .btn-primary:hover { background: var(--teal-deep); }
 
 /* ── Responsive ── */
 @media (max-width: 920px) {
@@ -373,14 +373,14 @@ section { scroll-margin-top: 80px; }
   .section-title, .cta-section h2 { font-size: 36px; }
   .about-grid { grid-template-columns: 1fr; gap: 56px; }
   .engagements .section-head { grid-template-columns: 1fr; gap: 24px; }
-  .openclaw .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
+  .adminagents .section-head { grid-template-columns: 1fr; gap: 24px; margin-bottom: 40px; }
   .tier-grid { grid-template-columns: 1fr; }
   .agent-grid, .testimonial-grid { grid-template-columns: 1fr; }
-  .openclaw-how { padding: 48px 28px; margin-top: 64px; }
-  .openclaw-how h3 { font-size: 30px; margin-bottom: 36px; }
-  .openclaw-how-grid { grid-template-columns: 1fr 1fr; }
-  .openclaw-pricing { padding: 40px 24px; margin-top: 64px; }
-  .openclaw-pricing h3 { font-size: 28px; }
+  .adminagents-how { padding: 48px 28px; margin-top: 64px; }
+  .adminagents-how h3 { font-size: 30px; margin-bottom: 36px; }
+  .adminagents-how-grid { grid-template-columns: 1fr 1fr; }
+  .adminagents-pricing { padding: 40px 24px; margin-top: 64px; }
+  .adminagents-pricing h3 { font-size: 28px; }
   .testimonial-block { margin-top: 64px; }
   .case-grid { grid-template-columns: 1fr; }
   .process-grid { grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -399,7 +399,7 @@ section { scroll-margin-top: 80px; }
   .case-stats { grid-template-columns: 1fr 1fr; }
   .case-stats .case-stat:nth-child(3) { display: none; }
   .process-grid { grid-template-columns: 1fr; }
-  .openclaw-how-grid { grid-template-columns: 1fr; }
+  .adminagents-how-grid { grid-template-columns: 1fr; }
   .price-pills { gap: 14px; flex-direction: column; }
   .trust-inner { flex-direction: column; gap: 24px; }
 }
@@ -414,7 +414,7 @@ section { scroll-margin-top: 80px; }
     <nav class="nav-links">
       <a href="#about" class="nav-link">About</a>
       <a href="#engagements" class="nav-link">Engagements</a>
-      <a href="#openclaw" class="nav-link">OpenClaw</a>
+      <a href="#adminagents" class="nav-link">AdminAgents</a>
       <a href="#proof" class="nav-link">Proof</a>
       <a href="#faq" class="nav-link">FAQ</a>
       <a href="#contact" class="nav-cta">Book a call</a>
@@ -595,15 +595,15 @@ section { scroll-margin-top: 80px; }
   </div>
 </section>
 
-<!-- ── OpenClaw Product ── -->
-<section class="section openclaw" id="openclaw">
+<!-- ── AdminAgents Product ── -->
+<section class="section adminagents" id="adminagents">
   <div class="container">
     <div class="section-head">
       <div>
-        <span class="section-eyebrow">PRODUCT · OPENCLAW</span>
+        <span class="section-eyebrow">PRODUCT · ADMINAGENTS</span>
         <h2 class="section-title">Or skip the build — <em>turn on the agents.</em></h2>
       </div>
-      <p class="section-lede">OpenClaw is the productized version of what I'd build for you in a Tier 02 engagement. Pre-trained AI agents that run inside your existing stack — for firms that want the outcome without the engagement timeline.</p>
+      <p class="section-lede">AdminAgents is the productized version of what I'd build for you in a Tier 02 engagement. Pre-trained AI agents that run inside your existing stack — for firms that want the outcome without the engagement timeline.</p>
     </div>
 
     <div class="agent-grid">
@@ -674,34 +674,34 @@ section { scroll-margin-top: 80px; }
       </div>
     </div>
 
-    <div class="openclaw-how">
+    <div class="adminagents-how">
       <span class="section-eyebrow">HOW IT WORKS</span>
       <h3>Live in your firm by the end of the afternoon.</h3>
-      <div class="openclaw-how-grid">
-        <div class="openclaw-how-step">
-          <span class="openclaw-how-num">01 · 4 minutes</span>
-          <div class="openclaw-how-name">Connect your tools</div>
-          <div class="openclaw-how-desc">Clio, Filevine, MyCase, GHL, Smith.ai, Zoom Phone, your calendar. OAuth, no IT required.</div>
+      <div class="adminagents-how-grid">
+        <div class="adminagents-how-step">
+          <span class="adminagents-how-num">01 · 4 minutes</span>
+          <div class="adminagents-how-name">Connect your tools</div>
+          <div class="adminagents-how-desc">Clio, Filevine, MyCase, GHL, Smith.ai, Zoom Phone, your calendar. OAuth, no IT required.</div>
         </div>
-        <div class="openclaw-how-step">
-          <span class="openclaw-how-num">02 · 2 minutes</span>
-          <div class="openclaw-how-name">Pick your agents</div>
-          <div class="openclaw-how-desc">Switch on the workflows you want today. Intake. Status updates. Document prep. Or all three.</div>
+        <div class="adminagents-how-step">
+          <span class="adminagents-how-num">02 · 2 minutes</span>
+          <div class="adminagents-how-name">Pick your agents</div>
+          <div class="adminagents-how-desc">Switch on the workflows you want today. Intake. Status updates. Document prep. Or all three.</div>
         </div>
-        <div class="openclaw-how-step">
-          <span class="openclaw-how-num">03 · 10 minutes</span>
-          <div class="openclaw-how-name">Train on your firm's voice</div>
-          <div class="openclaw-how-desc">Drop in 3–5 emails or letters you've sent before. The agents mirror your tone, not corporate AI-speak.</div>
+        <div class="adminagents-how-step">
+          <span class="adminagents-how-num">03 · 10 minutes</span>
+          <div class="adminagents-how-name">Train on your firm's voice</div>
+          <div class="adminagents-how-desc">Drop in 3–5 emails or letters you've sent before. The agents mirror your tone, not corporate AI-speak.</div>
         </div>
-        <div class="openclaw-how-step">
-          <span class="openclaw-how-num">04 · Forever</span>
-          <div class="openclaw-how-name">Agents run 24/7</div>
-          <div class="openclaw-how-desc">You approve what goes out. Drafts run overnight. Leads from 9pm Friday don't sit till Monday.</div>
+        <div class="adminagents-how-step">
+          <span class="adminagents-how-num">04 · Forever</span>
+          <div class="adminagents-how-name">Agents run 24/7</div>
+          <div class="adminagents-how-desc">You approve what goes out. Drafts run overnight. Leads from 9pm Friday don't sit till Monday.</div>
         </div>
       </div>
     </div>
 
-    <div class="openclaw-pricing">
+    <div class="adminagents-pricing">
       <span class="section-eyebrow">PRICING</span>
       <h3>Priced so the math is <em style="font-style: italic; font-weight: 600; color: var(--teal);">obvious.</em></h3>
       <p class="pricing-sub">If you bill at $300/hr, the Pro plan pays for itself by Tuesday morning.</p>
