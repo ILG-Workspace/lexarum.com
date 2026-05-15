@@ -257,50 +257,25 @@ section { scroll-margin-top: 80px; }
 .footer-disclaimer { font-size: 12px; color: var(--muted); max-width: 50ch; text-align: right; line-height: 1.5; }
 
 /* ── OpenClaw Product Section (matches OpenClaw brand mockup) ── */
-.openclaw {
-  --oc-teal: #0d7377;
-  --oc-teal-deep: #095658;
-  --oc-teal-soft: rgba(13, 115, 119, 0.10);
-  --oc-teal-soft-2: rgba(13, 115, 119, 0.18);
-  background: #faf8f3;
-  border-bottom: none;
-}
-
-/* Section head — sans-serif, bold, teal italic accent */
-.openclaw .section-eyebrow { color: var(--oc-teal); font-weight: 500; letter-spacing: 0.10em; }
-.openclaw .section-title {
-  font-family: 'Inter', -apple-system, sans-serif;
-  font-weight: 600;
-  font-size: 48px;
-  line-height: 1.08;
-  letter-spacing: -0.025em;
-  color: var(--ink);
-}
-.openclaw .section-title em {
-  font-family: 'Inter', sans-serif;
-  font-style: italic;
-  font-weight: 600;
-  color: var(--oc-teal);
-}
+/* Section head layout */
 .openclaw .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: end; margin-bottom: 64px; }
-.openclaw .section-lede { color: var(--muted); }
 
 /* Agent cards */
 .agent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .agent-card {
-  background: #ffffff;
+  background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 32px;
   display: flex; flex-direction: column;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color 0.15s;
 }
-.agent-card:hover { border-color: rgba(13, 115, 119, 0.3); box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.agent-card:hover { border-color: rgba(13, 115, 119, 0.35); }
 .agent-card.featured { border-color: rgba(13, 115, 119, 0.45); }
 .agent-icon {
   width: 44px; height: 44px; border-radius: 10px;
-  background: var(--oc-teal-soft);
-  color: var(--oc-teal);
+  background: var(--teal-soft);
+  color: var(--teal);
   display: grid; place-items: center;
   margin-bottom: 24px;
 }
@@ -313,7 +288,7 @@ section { scroll-margin-top: 80px; }
 .agent-desc { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 24px; flex: 1; }
 .agent-savings {
   display: inline-flex; align-self: flex-start;
-  background: var(--oc-teal-soft); color: var(--oc-teal);
+  background: var(--teal-soft); color: var(--teal);
   font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 500;
   padding: 6px 12px; border-radius: 999px;
 }
@@ -324,9 +299,9 @@ section { scroll-margin-top: 80px; }
 .testimonial-block .section-title { text-align: center; margin: 0 auto 56px; max-width: 28ch; }
 .testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
 .testimonial {
-  background: #ffffff;
+  background: var(--bg);
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: 6px;
   padding: 32px;
   display: flex; flex-direction: column;
 }
@@ -334,7 +309,7 @@ section { scroll-margin-top: 80px; }
 .testimonial-author { display: flex; align-items: center; gap: 12px; }
 .testimonial-avatar {
   width: 36px; height: 36px; border-radius: 50%;
-  background: var(--oc-teal); color: #ffffff;
+  background: var(--teal); color: #ffffff;
   display: grid; place-items: center;
   font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 600;
   letter-spacing: 0.02em;
@@ -345,13 +320,13 @@ section { scroll-margin-top: 80px; }
 
 /* How-it-works (dark block) */
 .openclaw-how {
-  background: #1a1a1a; color: var(--bg);
-  border-radius: 14px;
+  background: var(--ink); color: var(--bg);
+  border-radius: 6px;
   padding: 72px 56px;
   margin-top: 112px;
   text-align: center;
 }
-.openclaw-how .section-eyebrow { color: var(--oc-teal); text-align: center; display: block; margin-bottom: 14px; }
+.openclaw-how .section-eyebrow { color: var(--teal); text-align: center; display: block; margin-bottom: 14px; }
 .openclaw-how h3 {
   font-family: 'Inter', sans-serif;
   font-weight: 600; font-size: 44px; line-height: 1.08; letter-spacing: -0.025em;
@@ -359,15 +334,15 @@ section { scroll-margin-top: 80px; }
 }
 .openclaw-how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; text-align: left; }
 .openclaw-how-step { }
-.openclaw-how-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--oc-teal); letter-spacing: 0.06em; margin-bottom: 16px; display: block; }
+.openclaw-how-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--teal); letter-spacing: 0.06em; margin-bottom: 16px; display: block; }
 .openclaw-how-name { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 17px; line-height: 1.3; letter-spacing: -0.01em; margin-bottom: 12px; color: #ffffff; }
 .openclaw-how-desc { font-size: 13.5px; color: rgba(255, 255, 255, 0.62); line-height: 1.6; }
 
 /* Pricing teaser */
 .openclaw-pricing {
   margin-top: 32px;
-  background: #efece5;
-  border-radius: 14px;
+  background: var(--surface);
+  border-radius: 6px;
   padding: 64px 48px;
   text-align: center;
 }
@@ -378,16 +353,16 @@ section { scroll-margin-top: 80px; }
   margin-bottom: 14px;
 }
 .openclaw-pricing h3 em {
-  font-family: 'Inter', sans-serif; font-style: italic; font-weight: 600; color: var(--oc-teal);
+  font-family: 'Inter', sans-serif; font-style: italic; font-weight: 600; color: var(--teal);
 }
 .openclaw-pricing .pricing-sub { font-size: 14.5px; color: var(--muted); margin-bottom: 32px; }
 .price-pills { display: flex; align-items: center; justify-content: center; gap: 36px; flex-wrap: wrap; margin-bottom: 36px; }
 .price-pill { font-size: 14px; color: var(--ink-soft); display: inline-flex; align-items: baseline; gap: 6px; }
 .price-pill .name { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--ink); }
-.price-pill .amount { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--oc-teal); font-size: 15px; }
+.price-pill .amount { font-family: 'Inter', sans-serif; font-weight: 600; color: var(--teal); font-size: 15px; }
 .price-pill .popular { font-size: 11px; color: var(--muted); margin-left: 4px; font-weight: 400; }
-.openclaw-pricing .btn-primary { background: var(--oc-teal); }
-.openclaw-pricing .btn-primary:hover { background: var(--oc-teal-deep); }
+.openclaw-pricing .btn-primary { background: var(--teal); }
+.openclaw-pricing .btn-primary:hover { background: var(--teal-deep); }
 
 /* ── Responsive ── */
 @media (max-width: 920px) {
